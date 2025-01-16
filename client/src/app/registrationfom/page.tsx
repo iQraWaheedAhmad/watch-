@@ -1,20 +1,33 @@
 'use client';
 import React, { useState } from 'react';
-import axios from 'axios' // Import axios for HTTP requests
+import axios from 'axios';
 import Link from 'next/link';
-
 
 const RegistrationForm = () => {
   const [name, setName] = useState(''); // Initialize name state
   const [email, setEmail] = useState(''); // Initialize email state
   const [password, setPassword] = useState(''); // Initialize password state
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [message, setMessage] = useState(''); // State for success or error message
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent form from refreshing the page
-    axios.post('http://localhost:3001/register', { name, email, password })
-      .then((result: any) => console.log(result))
-      .catch((err: any) => console.error(err));
+    try {
+      const response = await axios.post('http://localhost:3001/register', {
+        name,
+        email,
+        password,
+      });
+      setMessage('Registration successful!'); // Set success message
+      console.log(response.data);
+      // Optionally, reset the form
+      setName('');
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      setMessage('Registration failed. Please try again.'); // Set error message
+      console.error(error);
+    }
   };
 
   return (
@@ -100,18 +113,25 @@ const RegistrationForm = () => {
           </div>
 
           {/* Submit Button */}
-          <Link href={'/register'}
+          <button
             type="submit"
             className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200"
           >
             Register
-          </Link>
+          </button>
         </form>
+
+        {/* Success/Error Message */}
+        {message && (
+          <p className="text-center mt-4 text-sm text-white">
+            {message}
+          </p>
+        )}
 
         {/* Already have an account Link */}
         <div className="text-sm text-center mt-4">
           <p>
-            Already have an account?{" "}
+            Already have an account?{' '}
             <Link href="/login" className="text-indigo-600 hover:text-indigo-700 transition duration-200">
               Login
             </Link>

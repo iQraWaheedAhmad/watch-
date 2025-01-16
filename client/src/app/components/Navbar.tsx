@@ -148,7 +148,7 @@ export default function Home() {
             alt="About"
             width={600}
             height={600}
-            src={require('../../../public/P4.jpg')} // Update to the correct image path
+            src={"/P4.jpg"} // Update to the correct image path
           />
         </div>
       </section>

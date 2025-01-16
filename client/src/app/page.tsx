@@ -1,6 +1,5 @@
 'use client';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Details from './components/Account';
 import Login from './login_route/page';
 import VideoPage from './components/Videopage';
