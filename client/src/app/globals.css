@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: outfit;
+}
+
+/* Apply light black background and white text to the entire website */
+body {
+  background-color: #121212; /* Light black */
+  color: #ffffff; /* White text for readability */
+}
+
+/* Optional: Adjust link colors */
+a {
+  color: #1e90ff; /* Light blue for links */
+}
+
+a:hover {
+  color: #63b3ed; /* Lighter blue on hover */
+}
