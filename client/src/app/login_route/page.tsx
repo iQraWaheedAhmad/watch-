@@ -1,6 +1,8 @@
-'use client'
+'use client';
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +10,12 @@ const LoginForm = () => {
     password: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState(""); // State for success or error message
+  const [loading, setLoading] = useState(false); // State for button loading
+  const router = useRouter(); // For navigation
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -18,10 +23,45 @@ const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle login functionality
-    console.log(formData);
+    setLoading(true); // Start the loading state
+    setMessage(""); // Clear any previous messages
+
+    try {
+      // Make a POST request to the login endpoint
+      const response = await axios.post("http://localhost:3001/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (response.status === 200) {
+        // Login successful
+        setMessage("Login successful!");
+        console.log(response.data);
+
+        // Optionally store the token or user data
+        if (response.data.token) {
+          localStorage.setItem("authToken", response.data.token); // Save the token
+        }
+
+        // Redirect to the payment route after successful login
+        setTimeout(() => {
+          router.push("/payment_route");
+        }, 1500);
+      } else {
+        // Handle unexpected response
+        setMessage("Unexpected error occurred. Please try again.");
+      }
+    } catch (error: any) {
+      // Handle login errors
+      console.error(error);
+      setMessage(
+        error.response?.data?.message || "Login failed. Please check your email and password."
+      );
+    } finally {
+      setLoading(false); // End the loading state
+    }
   };
 
   return (
@@ -89,21 +129,28 @@ const LoginForm = () => {
           </div>
 
           {/* Submit Button */}
-          <div className="text-center">
-            <Link href={'payment_route'}
-              type="submit"
-              className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200"
-            >
-              Login
-            </Link>
-          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
         </form>
 
+        {/* Display success or error message */}
+        {message && <p className="text-center mt-4 text-sm text-white">{message}</p>}
+
         {/* Don't have an account Link */}
-        <div className="text-sm text-center mt-4">
+        <div className="text-sm text-center text-white mt-4">
           <p>
             Don't have an account?{" "}
-            <Link href="/registrationfom" className="text-indigo-600 hover:text-indigo-700 transition duration-200">
+            <Link
+              href="/registrationfom"
+              className="text-indigo-600 hover:text-indigo-700 transition duration-200"
+            >
               Register
             </Link>
           </p>

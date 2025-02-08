@@ -1,20 +1,21 @@
-'use client';
 
-import Details from './components/Account';
-import Login from './login_route/page';
-import VideoPage from './components/Videopage';
-import Link from 'next/link';
+import Hero from './components/Hero'
+import Footer from './components/Footer'
 import MoreInfo from './components/MoreInfo';
-import Blog from './components/Blog';
 import Account from './components/Account';
 
+import { db } from './firebase/firebaseConfig';
+import Detail from './components/Detail';
 
-export default function Page() {
+
+export default function Home() {
   return (
-    
-   <div>
-    <Account/>
-    <MoreInfo/>
-   </div>
+    <div>
+     <Hero />
+      <MoreInfo/>
+      <Account/>
+      <Detail />
+      <Footer/>
+    </div>
   );
 }

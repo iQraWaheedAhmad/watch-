@@ -2,21 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  font-family: outfit;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-/* Apply light black background and white text to the entire website */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 body {
-  background-color: #121212; /* Light black */
-  color: #ffffff; /* White text for readability */
-}
-
-/* Optional: Adjust link colors */
-a {
-  color: #1e90ff; /* Light blue for links */
-}
-
-a:hover {
-  color: #63b3ed; /* Lighter blue on hover */
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }

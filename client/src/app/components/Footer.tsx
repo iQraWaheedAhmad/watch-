@@ -15,11 +15,11 @@ const Footer = () => {
           Don't miss out—take the first step today and watch your earnings grow!
         </p>
         <footer className=" text-center p-4 text-white mt-4">
-          © {new Date().getFullYear()} Your Website Name. All rights reserved.
+          © {new Date().getFullYear()} Your Watch And Earn. All rights reserved.
           </footer>
         {/* Button */}
-        <Link href="/get-started">
-          <button className="bg-yellow-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 text-base sm:text-lg font-semibold">
+        <Link href="/registrationfom">
+          <button className="bg-yellow-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300 text-base sm:text-lg font-semibold">
             GET STARTED
           </button>
         </Link>

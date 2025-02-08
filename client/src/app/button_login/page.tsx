@@ -1,17 +1,18 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 
+const messages = [
+  "    First, complete your verification.",
+  "   Then, move on to login.",
+  "   Watch the videos and earn money!",
+];
+
+const colors = ["text-yellow-400", "text-blue-500", "text-red-600"];
+
 const TypewriterPage = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [messageIndex, setMessageIndex] = useState(0);
 
-  const messages = [
-    "    First, complete your verification.",
-    "   Then, move on to login.",
-    "   Watch the videos and earn money!",
-  ];
-  const colors = ["text-yellow-400", "text-blue-500", "text-red-600"];
-  
   useEffect(() => {
     let message = messages[messageIndex];
     let i = 0;
@@ -46,5 +47,6 @@ const TypewriterPage = () => {
     </div>
   );
 };
+
 
 export default TypewriterPage;
