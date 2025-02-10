@@ -1,4 +1,4 @@
-  {
+{
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -13,11 +13,21 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-   
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/firebase/firebaseConfig.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/firebase/firebaseConfig.js"
+  ],
   "exclude": ["node_modules"]
 }

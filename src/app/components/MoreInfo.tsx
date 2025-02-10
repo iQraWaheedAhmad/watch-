@@ -1,6 +1,6 @@
-'use client';
-import Link from 'next/link';
-import React from 'react';
+"use client";
+import Link from "next/link";
+import React from "react";
 
 const MoreInfo = () => {
   const plans = [
@@ -31,12 +31,14 @@ const MoreInfo = () => {
                   ₨{plan.price.toLocaleString()}
                 </p>
               </div>
-              <p className="text-sm sm:text-lg text-white mt-4">Profit: ₨{plan.profit}</p>
+              <p className="text-sm sm:text-lg text-white mt-4">
+                Profit: ₨{plan.profit}
+              </p>
               <p className="text-sm sm:text-lg text-yellow-300 mt-2">
                 Refer Profit: ₨{plan.referProfit}
               </p>
               <Link
-                href={'/registrationfom'}
+                href={"/registrationfom"}
                 className="mt-4 bg-yellow-500 text-black font-semibold py-2 px-4 rounded-md hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-400"
               >
                 Deposit

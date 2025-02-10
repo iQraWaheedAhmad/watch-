@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AccountsPage() {
   return (
@@ -12,8 +12,9 @@ export default function AccountsPage() {
           Digital Bank Accounts
         </h1>
         <p className="text-center bg-black-500 text-bold max-w-3xl mx-auto mb-12">
-          Explore the benefits of various digital banking services! From quick transactions to seamless integrations, 
-          manage your money smarter with these trusted solutions.
+          Explore the benefits of various digital banking services! From quick
+          transactions to seamless integrations, manage your money smarter with
+          these trusted solutions.
         </p>
 
         {/* Containers Section */}
@@ -33,13 +34,14 @@ export default function AccountsPage() {
               JazzCash
             </h2>
             <p className="text-gray-600 text-center text-sm sm:text-base mb-4">
-              JazzCash is one of the leading mobile wallets in Pakistan, offering instant money transfers, utility bill payments, and more.
+              JazzCash is one of the leading mobile wallets in Pakistan,
+              offering instant money transfers, utility bill payments, and more.
             </p>
             <Link
-              href={'registrationfom'}
+              href={"registrationfom"}
               className="block text-center bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400 transition"
             >
-             Deposit
+              Deposit
             </Link>
           </div>
 
@@ -58,13 +60,15 @@ export default function AccountsPage() {
               Easypaisa
             </h2>
             <p className="text-gray-600 text-center text-sm sm:text-base mb-4">
-              Easypaisa allows users to make fast payments, manage digital transactions, and access secure financial services across Pakistan.
+              Easypaisa allows users to make fast payments, manage digital
+              transactions, and access secure financial services across
+              Pakistan.
             </p>
             <Link
-              href={'registrationfom'}
+              href={"registrationfom"}
               className="block text-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-400 transition"
             >
-             Deposit
+              Deposit
             </Link>
           </div>
 
@@ -83,13 +87,14 @@ export default function AccountsPage() {
               HBL
             </h2>
             <p className="text-gray-600 text-center text-sm sm:text-base mb-4">
-              HBL provides seamless digital banking solutions with mobile and online banking platforms.
+              HBL provides seamless digital banking solutions with mobile and
+              online banking platforms.
             </p>
             <Link
-              href={'registrationfom'}
+              href={"registrationfom"}
               className="block text-center bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-400 transition"
             >
-             Deposit
+              Deposit
             </Link>
           </div>
 
@@ -108,10 +113,11 @@ export default function AccountsPage() {
               UBL
             </h2>
             <p className="text-gray-600 text-center text-sm sm:text-base mb-4">
-              UBL leads in Islamic banking, offering Sharia-compliant financial services to its customers.
+              UBL leads in Islamic banking, offering Sharia-compliant financial
+              services to its customers.
             </p>
             <Link
-              href={'registrationfom'}
+              href={"registrationfom"}
               className="block text-center bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-400 transition"
             >
               Deposit

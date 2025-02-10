@@ -1,23 +1,21 @@
-'use client';
-import Image from 'next/image';
-import { Typewriter } from 'react-simple-typewriter';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+ 
+/* eslint-disable react/no-unescaped-entities */
+
+"use client";
+import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const typewriterWords = [
-  'Earn rewards by watching videos!',
-  'Start now and turn your free time into cash!',
-  'Get paid to watch videos!',
-  'Your time is valuable!',
+  "Earn rewards by watching videos!",
+  "Start now and turn your free time into cash!",
+  "Get paid to watch videos!",
+  "Your time is valuable!",
 ];
 
-const sliderImages = [
-  "/P4.jpg",
-  "/img.jpg",
-  "/p4.jpg",
-  "/img3.jpg",
-];
+const sliderImages = ["/P4.jpg", "/img.jpg", "/p4.jpg", "/img3.jpg"];
 
 export default function Hero() {
   const sliderSettings = {
@@ -55,7 +53,8 @@ export default function Hero() {
           "Watch Videos and Start Earning with Minimal Investment!"
         </p>
         <p className="text-lg text-white max-w-md">
-          Looking for a quick and easy way to make money? Dive into an exciting opportunity where you can:
+          Looking for a quick and easy way to make money? Dive into an exciting
+          opportunity where you can:
           <br />
           ✔️ <strong>Watch videos online</strong>
           <br />
@@ -63,9 +62,11 @@ export default function Hero() {
           <br />
           ✔️ <strong>Start with low investment</strong>
           <br />
-          It’s simple, fun, and perfect for beginners. Don't miss out on this chance to grow your income!
+          It’s simple, fun, and perfect for beginners. Don't miss out on this
+          chance to grow your income!
           <br />
-          <strong>Get started today and see the difference.</strong> Your journey to earning begins now! 🚀
+          <strong>Get started today and see the difference.</strong> Your
+          journey to earning begins now! 🚀
         </p>
       </div>
 
@@ -78,9 +79,10 @@ export default function Hero() {
                 <Image
                   src={img}
                   alt={`Slide ${index + 1}`}
-                  width={400} // Matches text section
-                  height={300} // Consistent height
+                  width={400}
+                  height={300}
                   className="rounded-full object-cover shadow-lg"
+                  priority={index === 0} // Optimize first image load
                 />
               </div>
             </div>

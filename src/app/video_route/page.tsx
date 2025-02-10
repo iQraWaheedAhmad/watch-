@@ -1,14 +1,14 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import ReactPlayer from 'react-player';
+"use client";
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 
 const Videos = () => {
   const videoUrls = [
-    'https://www.youtube.com/watch?v=LXb3EKWsInQ',
-    'https://www.youtube.com/watch?v=ScMzIvxBSi4',
-    'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
-    'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-    'https://www.youtube.com/watch?v=kJQP7kiw5Fk'
+    "https://www.youtube.com/watch?v=LXb3EKWsInQ",
+    "https://www.youtube.com/watch?v=ScMzIvxBSi4",
+    "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
+    "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+    "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
   ];
 
   const profitMessages = [
@@ -19,7 +19,7 @@ const Videos = () => {
     "Round 5 complete and Profit: ₨510",
     "Round 6 complete and Profit: ₨720",
     "Round 7 complete and Profit: ₨1420",
-    "Round 8 complete and Profit: ₨2500"
+    "Round 8 complete and Profit: ₨2500",
   ];
 
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -89,7 +89,9 @@ const Videos = () => {
           onClick={nextVideo}
           disabled={!isVideoEnded}
           className={`mt-4 py-2 px-6 rounded-lg transition ${
-            !isVideoEnded ? 'bg-gray-500 text-gray-300 cursor-not-allowed' : 'bg-yellow-500 text-white hover:bg-yellow-600'
+            !isVideoEnded
+              ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+              : "bg-yellow-500 text-white hover:bg-yellow-600"
           }`}
         >
           Next Video

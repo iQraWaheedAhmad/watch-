@@ -1,4 +1,9 @@
-'use client';
+ 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/no-unescaped-entities */
+
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -55,9 +60,11 @@ const LoginForm = () => {
       } else {
         setMessage("Unexpected error. Please try again.");
       }
-    } catch (error: unknown) {
+    } catch (error: any) {
       if (axios.isAxiosError(error)) {
-        setMessage(error.response?.data?.message || "Invalid email or password.");
+        setMessage(
+          error.response?.data?.message || "Invalid email or password."
+        );
       } else {
         setMessage("An unexpected error occurred.");
       }
@@ -69,11 +76,16 @@ const LoginForm = () => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-gray-900 p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-extrabold text-center text-white">Login</h2>
+        <h2 className="text-3xl font-extrabold text-center text-white">
+          Login
+        </h2>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {/* Email Input */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-white"
+            >
               Email address
             </label>
             <input
@@ -90,7 +102,10 @@ const LoginForm = () => {
 
           {/* Password Input */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-white">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-white"
+            >
               Password
             </label>
             <div className="relative">
@@ -119,7 +134,9 @@ const LoginForm = () => {
             type="submit"
             disabled={loading}
             className={`w-full text-white font-semibold py-2 px-4 rounded-md transition duration-200 ${
-              loading ? "bg-gray-500 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-700"
+              loading
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-indigo-600 hover:bg-indigo-700"
             }`}
           >
             {loading ? "Logging in..." : "Login"}
@@ -127,7 +144,9 @@ const LoginForm = () => {
         </form>
 
         {/* Display success or error message */}
-        {message && <p className="text-center mt-4 text-sm text-white">{message}</p>}
+        {message && (
+          <p className="text-center mt-4 text-sm text-white">{message}</p>
+        )}
 
         {/* Don't have an account Link */}
         <div className="text-sm text-center text-white mt-4">

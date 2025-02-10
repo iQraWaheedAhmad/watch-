@@ -1,5 +1,5 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 
 const messages = [
   "    First, complete your verification.",
@@ -10,13 +10,13 @@ const messages = [
 const colors = ["text-yellow-400", "text-blue-500", "text-red-600"];
 
 const TypewriterPage = () => {
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState("");
   const [messageIndex, setMessageIndex] = useState(0);
 
   useEffect(() => {
-    let message = messages[messageIndex];
+    const message = messages[messageIndex];
     let i = 0;
-    setDisplayedText(''); // Clear the previous message before starting a new one
+    setDisplayedText(""); // Clear the previous message before starting a new one
     const interval = setInterval(() => {
       if (i < message.length) {
         setDisplayedText((prev) => prev + message[i]);
@@ -47,6 +47,5 @@ const TypewriterPage = () => {
     </div>
   );
 };
-
 
 export default TypewriterPage;
