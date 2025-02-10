@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from '../../firebase/firebaseConfig' // Updated import path
 import { collection, addDoc, query, orderBy, onSnapshot } from "firebase/firestore";
 import { Send, MessageSquare,  } from "lucide-react";
-import { time } from "console";
+
 
 const ChatComponent = () => {
   const [open, setOpen] = useState(false);
