@@ -2,8 +2,7 @@
 "use client";
 
 
- 
-export default function Detail() {
+ export default function Detail() {
   return (
     <div
       className="bg-black min-h-screen text-white flex items-center justify-center px-6 py-10"
